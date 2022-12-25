@@ -1,0 +1,86 @@
+﻿@model IEnumerable<projektMVC.Models.Userinfo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+        corePlugins: {
+            preflight: true,
+        },
+        prefix: 'tailwind-',
+    }
+</script>
+
+<p class="tailwind-border-2 tailwind-border-slate-300 tailwind-w-24 tailwind-m-5 tailwind-p-1">
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="tailwind-w-full tailwind-text-sm tailwind-text-left tailwind-text-slate-300">
+    <thead class="tailwind-text-xs tailwind-text-slate-300 tailwind-bg-slate-700">
+        <tr>
+            <th class="tailwind-py-4 tailwind-px-6 tailwind-font-medium tailwind-text-slate-300 whitespace-nowrap">
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th class="tailwind-py-4 tailwind-px-6 tailwind-font-medium tailwind-text-slate-300 whitespace-nowrap">
+                @Html.DisplayNameFor(model => model.Prefix)
+            </th>
+            <th class="tailwind-py-4 tailwind-px-6 tailwind-font-medium tailwind-text-slate-300 whitespace-nowrap">
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th class="tailwind-py-4 tailwind-px-6 tailwind-font-medium tailwind-text-slate-300 whitespace-nowrap">
+                @Html.DisplayNameFor(model => model.Login)
+            </th>
+            <th class="tailwind-py-4 tailwind-px-6 tailwind-font-medium tailwind-text-slate-300 whitespace-nowrap">
+                @Html.DisplayNameFor(model => model.LastLoginDate)
+            </th>
+            <th class="tailwind-py-4 tailwind-px-6 tailwind-font-medium tailwind-text-slate-300 whitespace-nowrap">
+                @Html.DisplayNameFor(model => model.CreateAccountDate)
+            </th>
+            <th class="tailwind-py-4 tailwind-px-6 tailwind-font-medium tailwind-text-slate-300 whitespace-nowrap">
+                @Html.DisplayNameFor(model => model.StatusAccount)
+            </th>
+            <th class="tailwind-py-4 tailwind-px-6 tailwind-font-medium tailwind-text-slate-300 whitespace-nowrap">
+                @Html.DisplayNameFor(model => model.Timetable)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="tailwind-bg-slate-700 tailwind-border-b tailwind-text-lg">
+                <td class="tailwind-py-4 tailwind-px-6">
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td class="tailwind-py-4 tailwind-px-6">
+                    @Html.DisplayFor(modelItem => item.Prefix)
+                </td>
+                <td class="tailwind-py-4 tailwind-px-6">
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td class="tailwind-py-4 tailwind-px-6">
+                    @Html.DisplayFor(modelItem => item.Login)
+                </td>
+                <td class="tailwind-py-4 tailwind-px-6">
+                    @Html.DisplayFor(modelItem => item.LastLoginDate)
+                </td>
+                <td class="tailwind-py-4 tailwind-px-6">
+                    @Html.DisplayFor(modelItem => item.CreateAccountDate)
+                </td>
+                <td class="tailwind-py-4 tailwind-px-6">
+                    @Html.DisplayFor(modelItem => item.StatusAccount)
+                </td>
+                <td class="tailwind-py-4 tailwind-px-6">
+                    @Html.DisplayFor(modelItem => item.Timetable.Timetableid)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Userid">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Userid">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Userid">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

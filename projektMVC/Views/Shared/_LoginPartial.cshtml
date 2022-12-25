@@ -1,0 +1,17 @@
+﻿@using System.Security.Principal
+
+<ul class="navbar-nav tailwind-bg-slate-800 tailwind-text-slate-300">
+@if (User.Identity?.IsAuthenticated == true)
+{
+        <span class="navbar-text">Zalogowany jako: @User.Identity?.Name!</span>
+        <li class="nav-item">
+            <a class="nav-link tailwind-text-slate-300" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">Wyloguj</a>
+        </li>
+}
+else
+{
+        <li class="nav-item">
+            <a class="nav-link tailwind-text-slate-300" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Zaloguj</a>
+        </li>
+}
+</ul>

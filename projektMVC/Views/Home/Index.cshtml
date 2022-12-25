@@ -1,0 +1,59 @@
+﻿@using System.Text.Json;
+@model Home;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+        corePlugins: {
+            preflight: true,
+        },
+        prefix: 'tailwind-',
+    }
+</script>
+
+<div class="text-center">
+    <h1 class="display-4">Witaj @(User.Identity!.Name)!</h1>
+    <p class="">@Model.WelcomeMessage</p>
+</div>
+
+<div>@ViewData["ApiResult"]</div>
+<div>@ViewData["GraphApiResult"]</div>
+
+<div class="wrapper tailwind-bg-slate-800 tailwind-text-slate-300 tailwind-border-slate-300 border-2">
+
+    <div class="container-calendar">
+        <h3 id="monthAndYear"></h3>
+
+        <div class="button-container-calendar">
+            <button id="previous" onclick="previous()">&#8249;</button>
+            <button id="next" onclick="next()">&#8250;</button>
+        </div>
+
+        <table class="table-calendar" id="calendar" data-lang="en">
+            <thead id="thead-month"></thead>
+            <tbody id="calendar-body"></tbody>
+        </table>
+
+        <div class="footer-container-calendar">
+            <label for="month">Jump To: </label>
+            <select id="month" onchange="jump()">
+                <option value=0>Styczeń</option>
+                <option value=1>Luty</option>
+                <option value=2>Marzec</option>
+                <option value=3>Kwiecień</option>
+                <option value=4>Maj</option>
+                <option value=5>Czerwiec</option>
+                <option value=6>Lipiec</option>
+                <option value=7>Sierpień</option>
+                <option value=8>Wrzesień</option>
+                <option value=9>Październik</option>
+                <option value=10>Listopad</option>
+                <option value=11>Grudzień</option>
+            </select>
+            <select id="year" onchange="jump()"></select>
+        </div>
+    </div>
+</div>
